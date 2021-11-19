@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:context="http://www.springframework.org/schema/context"
+    xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans.xsd
+    http://www.springframework.org/schema/context
+    http://www.springframework.org/schema/context/spring-context.xsd">
+    
+    <context:property-placeholder location="classpath:sport.properties" />
+
+	<bean id="myFortuneService" class="com.andrei.gym.fortune.HappyFortuneService"/>
+    
+    <bean id="myBaseballCoach" class="com.andrei.gym.coach.BaseballCoach">
+    	<constructor-arg ref="myFortuneService"/>
+    </bean>
+    
+    <bean id="myCricketCoach" class="com.andrei.gym.coach.CricketCoach" scope="singleton">
+    	<property name="fortuneService" ref="myFortuneService" />
+    	
+    	<property name="emailAddress" value="team@email.com"/>
+    
+    	<property name="logo" value="${foo.logo}" />	
+    </bean>
+    
+     <bean 	id="myTrackCoach" 
+    		class="com.andrei.gym.coach.TrackCoach" 
+    		scope="singleton"
+    		
+    		init-method="doMyStartupStuff"
+    		destroy-method="doMyCleanupStuff"> 
+    		
+    	<constructor-arg ref="myFortuneService"/>
+    </bean>
+
+   
+
+</beans>
