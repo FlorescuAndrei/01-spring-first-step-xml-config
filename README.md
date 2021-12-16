@@ -4,7 +4,9 @@ Many sport coaches that have specific workout  and daily fortune.
 Spring project for understanding  Spring beans,  Inversion Of Control and Dependency Injection.
 
 
-Lib: spring framework 5.3.9  
+Lib: spring framework 5.3.9    
+
+Config: applicationContext.xml
 
 
  ![Project Explorer:](box/project-structure.png)
