@@ -7,20 +7,19 @@ public class CricketCoach implements Coach {
 	private FortuneService fortuneService;
 	private String emailAddress;
 	
-
+	private String logo;
+	
+	
+	public CricketCoach() {
+		System.out.println("CricketCoach: inside no-arg constructor");
+	}
+	
 	public String getLogo() {
 		return logo;
 	}
 
 	public void setLogo(String logo) {
 		this.logo = logo;
-	}
-
-	private String logo;
-	
-	
-	public CricketCoach() {
-		System.out.println("CricketCoach: inside no-arg constructor");
 	}
 	
 	public void setFortuneService(FortuneService fortuneService) {
